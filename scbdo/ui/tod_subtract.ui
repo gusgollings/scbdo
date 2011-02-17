@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkDialog" id="timing">
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">SCBdo :: Subtract times</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="type_hint">dialog</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox1">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkTable" id="timing_table">
+            <property name="visible">True</property>
+            <property name="n_rows">5</property>
+            <property name="n_columns">3</property>
+            <property name="column_spacing">2</property>
+            <property name="row_spacing">2</property>
+            <child>
+              <object class="GtkLabel" id="timing_start_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Start ToD:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="timing_start_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Start Time of Day - HH:MM:SS.dcmz</property>
+                <property name="max_length">30</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="width_chars">14</property>
+                <signal name="activate" handler="timing_net_activate_cb"/>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHSeparator" id="hseparator1">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="right_attach">3</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+                <property name="y_options"></property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="timing_title">
+                <property name="visible">True</property>
+                <property name="yalign">1</property>
+                <property name="label" translatable="yes">Subtract Times</property>
+              </object>
+              <packing>
+                <property name="right_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="timing_start_now">
+                <property name="label" translatable="yes">Now</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Use current Time of Day for start</property>
+                <property name="focus_on_click">False</property>
+                <signal name="activate" handler="timing_start_now_activate_cb"/>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options"></property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="timing_finish_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Finish ToD:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="timing_finish_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Finish ToD - HH:MM:SS.dcmz</property>
+                <property name="max_length">30</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="width_chars">14</property>
+                <signal name="activate" handler="timing_net_activate_cb"/>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="timing_finish_now">
+                <property name="label" translatable="yes">Now</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Use current Time of Day for finish</property>
+                <property name="focus_on_click">False</property>
+                <signal name="activate" handler="timing_finish_now_activate_cb"/>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options"></property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="timing_net_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Net Time:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">4</property>
+                <property name="bottom_attach">5</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="timing_net_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Difference between start and finish ToD</property>
+                <property name="max_length">30</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="width_chars">14</property>
+                <signal name="activate" handler="timing_net_activate_cb"/>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">4</property>
+                <property name="bottom_attach">5</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="layout_style">edge</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <object class="GtkButton" id="properties_apply">
+                <property name="label">gtk-ok</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="can_default">True</property>
+                <property name="has_default">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Close dialog</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="1">properties_apply</action-widget>
+    </action-widgets>
+  </object>
+</interface>

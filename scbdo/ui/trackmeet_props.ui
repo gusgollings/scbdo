@@ -1,0 +1,672 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkDialog" id="properties">
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">SCBdo :: Meet Properties</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="type_hint">dialog</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox1">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkTable" id="table1">
+            <property name="visible">True</property>
+            <property name="n_rows">17</property>
+            <property name="n_columns">3</property>
+            <child>
+              <object class="GtkLabel" id="meet_label">
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="yalign">1</property>
+                <property name="ypad">2</property>
+                <property name="label" translatable="yes">Meet</property>
+                <property name="track_visited_links">False</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="right_attach">3</property>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="meet_line1_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Line 1:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="meet_line2_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Line 2:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">4</property>
+                <property name="bottom_attach">5</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="meet_line3_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Line 3:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">5</property>
+                <property name="bottom_attach">6</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="meet_line1_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Line 1 of meet information</property>
+                <property name="max_length">30</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="meet_line2_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Line 2 of meet information</property>
+                <property name="max_length">30</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">4</property>
+                <property name="bottom_attach">5</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="meet_line3_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Line 3 of meet information</property>
+                <property name="max_length">30</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">5</property>
+                <property name="bottom_attach">6</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="scb_label">
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="yalign">1</property>
+                <property name="ypad">2</property>
+                <property name="label" translatable="yes">Scoreboard</property>
+                <property name="track_visited_links">False</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="right_attach">3</property>
+                <property name="top_attach">11</property>
+                <property name="bottom_attach">12</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="scb_port_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">SCB Port:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">12</property>
+                <property name="bottom_attach">13</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="scb_port_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Primary scoreboard communications port</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
+                <property name="width_chars">30</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">12</property>
+                <property name="bottom_attach">13</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="scb_port_dfl">
+                <property name="label" translatable="yes">Default</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Select the default port</property>
+                <property name="focus_on_click">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">12</property>
+                <property name="bottom_attach">13</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options"></property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="timing_label">
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="yalign">1</property>
+                <property name="ypad">2</property>
+                <property name="label" translatable="yes">Timing</property>
+                <property name="track_visited_links">False</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="right_attach">3</property>
+                <property name="top_attach">14</property>
+                <property name="bottom_attach">15</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="timing_main">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Main Timer:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">15</property>
+                <property name="bottom_attach">16</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="timing_backup">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Backup Timer:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">16</property>
+                <property name="bottom_attach">17</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="timing_main_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Main timer serial port</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">15</property>
+                <property name="bottom_attach">16</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="timing_backup_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Backup timer serial port</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">16</property>
+                <property name="bottom_attach">17</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="timing_main_dfl">
+                <property name="label" translatable="yes">Default</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Select default port</property>
+                <property name="focus_on_click">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">15</property>
+                <property name="bottom_attach">16</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options"></property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="timing_backup_dfl">
+                <property name="label" translatable="yes">Default</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Select default port</property>
+                <property name="focus_on_click">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">16</property>
+                <property name="bottom_attach">17</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options"></property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHSeparator" id="hseparator1">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="right_attach">3</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+                <property name="y_options"></property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="properties_title">
+                <property name="visible">True</property>
+                <property name="yalign">1</property>
+                <property name="label" translatable="yes">Edit Meet Properties</property>
+              </object>
+              <packing>
+                <property name="right_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="data_heading">
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="yalign">1</property>
+                <property name="ypad">2</property>
+                <property name="label" translatable="yes">Data/Results</property>
+                <property name="track_visited_links">False</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="right_attach">3</property>
+                <property name="top_attach">7</property>
+                <property name="bottom_attach">8</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="data_bib_result_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Bibs:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">9</property>
+                <property name="bottom_attach">10</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="data_bib_result">
+                <property name="label" translatable="yes">Include in results</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Include rider numbers in results</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">9</property>
+                <property name="bottom_attach">10</property>
+                <property name="y_options">GTK_FILL</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="data_tracklen_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Track Size:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">10</property>
+                <property name="bottom_attach">11</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHBox" id="tracklen_hbox">
+                <property name="visible">True</property>
+                <child>
+                  <object class="GtkSpinButton" id="tracklen_laps">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">2</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="width_chars">2</property>
+                    <property name="adjustment">laps_adjust</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                  </object>
+                  <packing>
+                    <property name="padding">1</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="tracklen_lap_label">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes"> lap = </property>
+                    <property name="width_chars">10</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="padding">1</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSpinButton" id="tracklen_total">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">5</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="activates_default">True</property>
+                    <property name="width_chars">5</property>
+                    <property name="adjustment">total_adjust</property>
+                    <property name="snap_to_ticks">True</property>
+                    <property name="numeric">True</property>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">10</property>
+                <property name="bottom_attach">11</property>
+                <property name="y_options">GTK_FILL</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="tracklen_units">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">m</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">10</property>
+                <property name="bottom_attach">11</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="data_showevno">
+                <property name="label" translatable="yes">Show on SCB</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Show event number on scoreboard overlays</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">8</property>
+                <property name="bottom_attach">9</property>
+                <property name="y_options">GTK_FILL</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="data_bib_evno_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Events:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">8</property>
+                <property name="bottom_attach">9</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="meet_logos_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Logos:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">6</property>
+                <property name="bottom_attach">7</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="meet_logos_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">List of logo filenames.</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">6</property>
+                <property name="bottom_attach">7</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="uscb_port_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Announce:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">13</property>
+                <property name="bottom_attach">14</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="uscb_port_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Announcer IRC connection (optional)</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
+                <property name="width_chars">30</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">13</property>
+                <property name="bottom_attach">14</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="layout_style">edge</property>
+            <child>
+              <object class="GtkButton" id="properties_cancel">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Abandon all changes</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="properties_apply">
+                <property name="label">gtk-apply</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="can_default">True</property>
+                <property name="has_default">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Apply changes to the current meet</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">properties_cancel</action-widget>
+      <action-widget response="1">properties_apply</action-widget>
+    </action-widgets>
+  </object>
+  <object class="GtkAdjustment" id="laps_adjust">
+    <property name="value">1</property>
+    <property name="lower">1</property>
+    <property name="upper">10</property>
+    <property name="step_increment">1</property>
+  </object>
+  <object class="GtkAdjustment" id="total_adjust">
+    <property name="value">250</property>
+    <property name="lower">100</property>
+    <property name="upper">2000</property>
+    <property name="step_increment">1</property>
+  </object>
+</interface>

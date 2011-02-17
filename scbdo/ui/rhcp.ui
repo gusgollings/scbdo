@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkListStore" id="race_action_model">
+    <columns>
+      <!-- column-name action -->
+      <column type="gchararray"/>
+      <!-- column-name code -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Withdraw</col>
+        <col id="1" translatable="yes">dnf</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Did not start</col>
+        <col id="1" translatable="yes">dns</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Add Starters</col>
+        <col id="1" translatable="yes">add</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Del Starters</col>
+        <col id="1" translatable="yes">del</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkVBox" id="race_vbox">
+    <property name="visible">True</property>
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkHBox" id="race_title_box">
+        <property name="visible">True</property>
+        <property name="border_width">5</property>
+        <child>
+          <object class="GtkLabel" id="title_namestr">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Lines</property>
+          </object>
+          <packing>
+            <property name="padding">2</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="title_close">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text" translatable="yes">Close and save race.</property>
+            <property name="relief">half</property>
+            <property name="focus_on_click">False</property>
+            <signal name="clicked" handler="title_close_clicked_cb"/>
+            <child>
+              <object class="GtkImage" id="race_close_icon">
+                <property name="visible">True</property>
+                <property name="stock">gtk-close</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="padding">2</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="position">0</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkFrame" id="ctrl_frame">
+        <property name="visible">True</property>
+        <property name="border_width">5</property>
+        <property name="label_xalign">0</property>
+        <child>
+          <object class="GtkAlignment" id="ctrl_align">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkTable" id="ctrl_table">
+                <property name="visible">True</property>
+                <property name="border_width">5</property>
+                <property name="n_rows">2</property>
+                <property name="n_columns">4</property>
+                <child>
+                  <object class="GtkButton" id="ctrl_stat_but">
+                    <property name="label" translatable="yes">Idle</property>
+                    <property name="width_request">160</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="border_width">1</property>
+                    <property name="focus_on_click">False</property>
+                  </object>
+                  <packing>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"></property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="ctrl_places">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">4</property>
+                    <property name="y_options">GTK_FILL</property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="ctrl_places_lbl">
+                    <property name="width_request">80</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">1</property>
+                    <property name="label" translatable="yes">Places:</property>
+                    <property name="track_visited_links">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="ctrl_action_lbl">
+                    <property name="visible">True</property>
+                    <property name="xalign">1</property>
+                    <property name="label" translatable="yes">Log Action:</property>
+                    <property name="track_visited_links">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="ctrl_action">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="right_attach">4</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                    <property name="y_options">GTK_FILL</property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBox" id="ctrl_action_combo">
+                    <property name="visible">True</property>
+                    <property name="model">race_action_model</property>
+                    <property name="active">2</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"></property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="stopwatch">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">HHhMM:SS.d</property>
+                  </object>
+                  <packing>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="label">
+          <object class="GtkLabel" id="ctrl_label">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Race Control</property>
+            <property name="single_line_mode">True</property>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="position">1</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkScrolledWindow" id="race_result_win">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="border_width">5</property>
+        <property name="hscrollbar_policy">automatic</property>
+        <property name="vscrollbar_policy">automatic</property>
+        <property name="shadow_type">in</property>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+      <packing>
+        <property name="position">2</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkHBox" id="query_box">
+        <property name="visible">True</property>
+        <property name="border_width">5</property>
+        <child>
+          <object class="GtkLabel" id="query_label">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Query rider:</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="padding">2</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="query_bib">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tooltip_text" translatable="yes">Rider number to query.</property>
+            <property name="max_length">32</property>
+            <property name="invisible_char">&#x25CF;</property>
+            <property name="width_chars">3</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="padding">2</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="query_result">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+          </object>
+          <packing>
+            <property name="padding">2</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="position">3</property>
+      </packing>
+    </child>
+  </object>
+</interface>

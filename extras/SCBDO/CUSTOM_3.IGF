@@ -1,0 +1,89 @@
+[HEADER]
+name=Four Lines
+version=0
+dim=144 72
+converttooem=1
+effect= 16 0 9 0 10 0 0 0 4 0 1 0 0 0 0 0 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+[FIELD]
+name=Top
+type=Text
+attributs=0x4C
+font=OMEGA, 12pts, (charset = 0)
+trim=1
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 0 144 18
+info=SCBDO.DBE:IGSCBDO[0]
+infotype=DB
+
+[FIELD]
+name=Divider
+type=Bitmap
+attributs=0x00
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 18 144 1
+info=C:\DISC\SCBDO\scb_dotline.bmp
+infotype=IMG
+
+[FIELD]
+name=Mid Hi
+type=Text
+attributs=0x2C
+font=OMEGA, 12pts, (charset = 0)
+trim=1
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 19 144 17
+info=SCBDO.DBE:IGSCBDO[1]
+infotype=DB
+
+[FIELD]
+name=Mid Lo
+type=Text
+attributs=0x2C
+font=OMEGA, 12pts, (charset = 0)
+trim=1
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 37 144 17
+info=SCBDO.DBE:IGSCBDO[2]
+infotype=DB
+
+[FIELD]
+name=Bottom
+type=Text
+attributs=0x2C
+font=OMEGA, 12pts, (charset = 0)
+trim=1
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 55 144 17
+info=SCBDO.DBE:IGSCBDO[3]
+infotype=DB

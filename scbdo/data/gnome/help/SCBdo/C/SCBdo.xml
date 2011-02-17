@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+  <!ENTITY legal SYSTEM "legal.xml">
+]>
+
+<article id="index" lang="en">
+  <articleinfo>
+    <title>SCBdo Manual</title>
+    <abstract role="description">
+      <para>SCBdo povides a collection of utilities for cycle race timing
+            and data handling.</para>
+    </abstract>
+    <copyright>
+      <year>2010</year>
+      <holder>Nathan Fraser</holder>
+    </copyright>
+
+    <authorgroup>
+      <author role="maintainer">
+        <firstname>Nathan</firstname>
+        <surname>Fraser</surname>
+      </author>
+    </authorgroup>
+
+    <revhistory>
+      <revision>
+        <revnumber>SCBdo Manual</revnumber>
+        <date>2010-11-06</date>
+      </revision>
+    </revhistory>
+
+    <releaseinfo>This manual describes version 1.2.8 of SCBdo</releaseinfo>
+  </articleinfo>
+  <para>SCBdo povides a collection of utilities for cycle race timing
+        and data handling.</para>
+  <section>
+    <title>Overview</title>
+    <para>SCBdo is a collection of utilities and modules to manage
+          electronic timing and data handling for cycle races. It also
+          includes abstract interfaces for Alge Timy, Times-7 Wheeltime
+          and Omega Scoreboard hardware.</para>
+    <para>Top level applications are provided for mass start road
+          races, and track meets.
+    </para>
+    <para>This manual covers basic usage of the roadmeet and trackmeet
+          programs. For
+          detailed information on modules, check the internal program
+          documentation with pydoc.
+    </para>
+  </section>
+  <section>
+    <title>Roadrace</title>
+    <para>Timing, data handling and scoreboard for road races.</para>
+    <section>
+      <title>Overview</title>
+      <para>Roadrace provides some simple tools for generating a road
+            race result. It tracks riders across a finish line with
+            messages from a Times7 wheeltime and allows full override
+            of places and bunch times.</para>
+      <para>The program is intended to be used alongside manual systems
+            for judging, timekeeping and officiating.</para>
+    </section>
+    <section>
+      <title>Setup</title>
+      <para>Preparation for a race involves allocation of rider numbers,
+            creation of a start list, addition of sponsor logos if required
+            and synchronisation with the Times7 clock.</para>
+      <para>Roadrace is still very much beta software so the preparation
+            involves the following somewhat clunky steps:</para>
+      <para>1: Open roadrace and select Meet-&gt;Open. Select
+            &quot;Create Folder&quot;, choose a name for the project, then
+            select &quot;Open&quot;. This will create a new blank road
+            meet. Fill in the basic event details by selecting
+            Meet-&gt;Properties. If you plan on printing reports,
+            select the Print Properties option and choose a preferred
+            printer. Then close the program.</para>
+      <para>2: Edit the rider &quot;database&quot; by opening the file
+            riders.csv in the directory you created. Once all rider names
+            and numbers are loaded, save the file and re-start roadrace.
+            Open your race with Meet-&gt;Open, the newly added riders
+            will now appear under the riders tab.
+            </para>
+      <para>3: Select the race action &quot;Add starters&quot; from the
+            action combo box, then enter your starters in the field
+            provided. Once all rider numbers are in, hit enter to load the
+            race result. At this point a start list can be printed from the
+            reports menu if required.</para>
+      <para>3a: (optional) If sponsor logos are required on reports, 
+            add the files logo.jpg, sublogo.jpg and footer.jpg to your
+            event folder. These images will be placed on all printed
+            reports in the top left, top right and bottom of each page
+            (respectively).</para>
+      <para>4: Do a rough synchronisation with the Times7 box if required
+            then clear its memory from the timing menu. The program is now
+            ready to run a race.</para>
+    </section>
+    <section>
+      <title>Running a race</title>
+      <para>Hit F5 to arm the system for a start trigger, or manually
+            enter the race start time using the edit times button in
+            the result tab. Once running an elapsed time will be displayed
+            and the status button will show 'Running'. </para>
+      <para>As riders come past the finish area, they will be displayed
+            in the scratch pad. This view shows a count of riders,
+            a count of riders in the bunch, the RFtime and down time on
+            the first person in the list. To clear the scratch pad,
+            hit F6 (eg for the start of a new lap). During this time 
+            it is possible to query the status of a rider using the 
+            query rider action, or by typing the number into the result
+            pane.</para>
+      <para>Riders that did not start or those that abandon can be
+            registered by selecting the appropriate action from the
+            race action option and then entering their rider numbers.
+            DNF and DNS actions will be logged and can be reversed if
+            required later.</para>
+      <para>When the riders are about to finish, hit F9 to 'arm' the
+            system for finish. Once armed, all riders crossing the finish
+            area will record a finish time and the result will start to
+            arrange itself. At this stage, it is possible to produce
+            a judges report for confirmation of places with the judges.
+            To temporarily disable recording of finishers, hit F9 to toggle
+            between running and finish.</para>
+      <para>Once all riders are in or accounted for, hit F10 to cease
+            recording. Places can then be entered manually, or they 
+            can be rearranged using the F7/F8 mark and promote method
+            (documented below). After putting riders in the correct order,
+            it may be necessary to adjust bunch times for some riders.
+            Once that is done, the result can be examined with the result
+            report.</para>
+    </section>
+    <section>
+      <title>Adjusting places with Mark/Promote</title>
+      <para>When confirming places with the judges, most of the riders
+            that cross the line will be in the correct order. For those
+            that are not, there is a shorthand keyboard method to quickly
+            scan and correct the full list of places.</para>
+      <para>As the judges list of places is read out, scroll down the 
+            result list with the keyboard. When you get to a place that
+            is not correct press F7 to 'mark' the current place in the
+            result, then type in the bib of the next placed rider, or
+            scroll to the desired record. Once
+            that rider is found, press F8 to 'promote' the selected rider
+            into the position previously marked.</para>
+      <para>After a 'promotion', the places upto that point will be filled
+            in automatically.</para>
+      <para>If there is a dead heat for any places, it must be entered
+            manually in the race action entry. Type the bib of each 
+           place separated with spaces, and use a minus character to
+           separate riders that were awarded the same place.</para>
+    </section>
+    <section>
+      <title>Results</title>
+      <para>Final results can be printed directly from the reports menu
+            or exported for use with other programs. The format of the
+            result export will most likely change over time.</para>
+    </section>
+  </section>
+  <section>
+    <title>Trackmeet</title>
+    <para>Timing, data handling and scoreboard for track race meets.</para>
+  </section>
+</article>

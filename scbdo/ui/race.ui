@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkListStore" id="race_action_model">
+    <columns>
+      <!-- column-name action -->
+      <column type="gchararray"/>
+      <!-- column-name code -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Did not Finish</col>
+        <col id="1" translatable="yes">dnf</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Add Starters</col>
+        <col id="1" translatable="yes">add</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Del Starters</col>
+        <col id="1" translatable="yes">del</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkVBox" id="race_vbox">
+    <property name="visible">True</property>
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkExpander" id="info_expand">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="border_width">5</property>
+        <property name="expanded">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkTable" id="race_info_table">
+            <property name="visible">True</property>
+            <property name="border_width">5</property>
+            <property name="n_rows">4</property>
+            <property name="n_columns">3</property>
+            <child>
+              <object class="GtkLabel" id="race_info_evno_pfx">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Event:</property>
+                <property name="width_chars">10</property>
+                <property name="track_visited_links">False</property>
+              </object>
+              <packing>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="race_info_prefix_pfx">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Prefix:</property>
+                <property name="track_visited_links">False</property>
+              </object>
+              <packing>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="race_info_title_pfx">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Title:</property>
+                <property name="track_visited_links">False</property>
+              </object>
+              <packing>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="race_info_time_pfx">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Time:</property>
+                <property name="track_visited_links">False</property>
+              </object>
+              <packing>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="race_info_prefix">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
+                <property name="max_length">32</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="width_chars">24</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="race_info_evno">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="xpad">4</property>
+                <property name="ypad">2</property>
+                <property name="single_line_mode">True</property>
+                <property name="track_visited_links">False</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="race_info_title">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">32</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="width_chars">24</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="race_info_time">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="xpad">4</property>
+                <property name="ypad">1</property>
+                <property name="single_line_mode">True</property>
+                <property name="track_visited_links">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="race_type">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="xalign">1</property>
+                <property name="xpad">2</property>
+                <property name="ypad">2</property>
+                <property name="label" translatable="yes">[race]</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="y_options">GTK_FILL</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkAlignment" id="alignment1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="xscale">0</property>
+                <property name="yscale">0</property>
+                <child>
+                  <object class="GtkButton" id="race_info_time_edit">
+                    <property name="label" translatable="yes">Edit Times...</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="race_info_time_edit_activate_cb"/>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+                <property name="x_options">GTK_FILL</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+        </child>
+        <child type="label_item">
+          <placeholder/>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="position">0</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkFrame" id="race_ctrl_frame">
+        <property name="visible">True</property>
+        <property name="border_width">5</property>
+        <property name="label_xalign">0</property>
+        <child>
+          <object class="GtkAlignment" id="race_ctrl_align">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkTable" id="race_ctrl_table">
+                <property name="visible">True</property>
+                <property name="border_width">5</property>
+                <property name="n_rows">2</property>
+                <property name="n_columns">4</property>
+                <child>
+                  <object class="GtkButton" id="race_ctrl_stat_but">
+                    <property name="label" translatable="yes">Idle</property>
+                    <property name="width_request">120</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">Race timing control and status</property>
+                    <property name="border_width">1</property>
+                    <property name="focus_on_click">False</property>
+                  </object>
+                  <packing>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"></property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="race_ctrl_places">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Record bibs of place getters for selected sprint</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="activate" handler="race_ctrl_places_activate_cb"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">4</property>
+                    <property name="y_options">GTK_FILL</property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="race_ctrl_places_lbl">
+                    <property name="width_request">80</property>
+                    <property name="visible">True</property>
+                    <property name="xalign">1</property>
+                    <property name="label" translatable="yes">Places:</property>
+                    <property name="track_visited_links">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="race_ctrl_action_lbl">
+                    <property name="visible">True</property>
+                    <property name="xalign">1</property>
+                    <property name="label" translatable="yes">Log Action:</property>
+                    <property name="track_visited_links">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="race_ctrl_action">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Apply selected action to entered bibs</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="width_chars">6</property>
+                    <signal name="activate" handler="race_ctrl_action_activate_cb"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="right_attach">4</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                    <property name="y_options">GTK_FILL</property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBox" id="race_ctrl_action_combo">
+                    <property name="visible">True</property>
+                    <property name="tooltip_text" translatable="yes">Action to log</property>
+                    <property name="model">race_action_model</property>
+                    <property name="active">0</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"></property>
+                    <property name="x_padding">2</property>
+                    <property name="y_padding">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="label">
+          <object class="GtkLabel" id="race_ctrl_label">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Race Control</property>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="position">1</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkScrolledWindow" id="race_result_win">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="border_width">5</property>
+        <property name="hscrollbar_policy">automatic</property>
+        <property name="vscrollbar_policy">automatic</property>
+        <property name="shadow_type">in</property>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+      <packing>
+        <property name="position">2</property>
+      </packing>
+    </child>
+  </object>
+</interface>

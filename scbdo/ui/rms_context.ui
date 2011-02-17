@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkMenu" id="rms_context">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkImageMenuItem" id="tod_context_edit">
+        <property name="label">gtk-edit</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Manually adjust this time</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <signal name="activate" handler="tod_context_edit_activate_cb"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="tod_context_clear">
+        <property name="label">gtk-clear</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Clear this time</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <signal name="activate" handler="tod_context_clear_activate_cb"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="tod_context_sep">
+        <property name="visible">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="tod_context_del">
+        <property name="label">gtk-delete</property>
+        <property name="visible">True</property>
+        <property name="tooltip_text" translatable="yes">Delete row from race model.</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <signal name="activate" handler="tod_context_del_activate_cb"/>
+      </object>
+    </child>
+  </object>
+</interface>

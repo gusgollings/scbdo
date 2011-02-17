@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="window">
+    <property name="title" translatable="yes">SCBdo :: Wheeltime Test</property>
+    <signal name="destroy" handler="window_destroy_cb"/>
+    <child>
+      <object class="GtkVBox" id="vbox1">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkMenuBar" id="menu">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkMenuItem" id="menufile">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_File</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu1">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="menu_quit">
+                        <property name="label">gtk-quit</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <accelerator key="q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                        <signal name="activate" handler="menu_quit_activate_cb"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="menuhelp">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_Help</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu3">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="menu_about">
+                        <property name="label">gtk-about</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="menu_about_activate_cb"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkTable" id="table">
+            <property name="visible">True</property>
+            <property name="n_rows">4</property>
+            <property name="n_columns">3</property>
+            <property name="row_spacing">2</property>
+            <child>
+              <object class="GtkLabel" id="last_lbl">
+                <property name="visible">True</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">Last Event RFID:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">4</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="tod_lbl">
+                <property name="visible">True</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">Last Event Time:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">4</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="port_lbl">
+                <property name="visible">True</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">Wheeltime Addr:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">4</property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="reconnect">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="reconnect_clicked_cb"/>
+                <child>
+                  <object class="GtkImage" id="connect_but_img">
+                    <property name="visible">True</property>
+                    <property name="tooltip_text" translatable="yes">Connect to wheeltime unit.</property>
+                    <property name="stock">gtk-disconnect</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">4</property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="port_ent">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <signal name="activate" handler="port_ent_activate_cb"/>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">1</property>
+                <property name="y_padding">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="event_id">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">[none]</property>
+                <property name="selectable">True</property>
+                <property name="single_line_mode">True</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">1</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="event_tod">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">[none]</property>
+                <property name="selectable">True</property>
+                <property name="single_line_mode">True</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">1</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkExpander" id="expander">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <child>
+                  <object class="GtkScrolledWindow" id="scrollbox">
+                    <property name="height_request">100</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="hscrollbar_policy">automatic</property>
+                    <property name="vscrollbar_policy">automatic</property>
+                    <property name="shadow_type">in</property>
+                    <child>
+                      <object class="GtkTextView" id="log_view">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="editable">False</property>
+                        <property name="left_margin">4</property>
+                        <property name="right_margin">4</property>
+                        <property name="cursor_visible">False</property>
+                        <property name="buffer">log_buffer</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="label">
+                  <object class="GtkLabel" id="expanderlbl">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Event Log</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="right_attach">3</property>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="padding">2</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkStatusbar" id="status">
+            <property name="visible">True</property>
+            <property name="spacing">2</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkTextBuffer" id="log_buffer"/>
+</interface>

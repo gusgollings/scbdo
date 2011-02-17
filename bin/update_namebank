@@ -1,0 +1,141 @@
+#!/usr/bin/python
+from __future__ import print_function
+
+# SCBdo : DISC Track Racing Management Software
+# Copyright (C) 2010  Nathan Fraser
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+"""Update the shared namebank database and index from a CA dump file.
+
+CA dump file should have the same columns as the namebank DB:
+
+ ID, First, Last, Club, Cat, RefID, Abbreviated Club, State
+
+Imported rows will be cleaned to printing ASCII and will have
+spurious newlines removed. Last name, Cat and State are folded to
+uppercase.
+
+"""
+
+import os
+import sys
+import csv
+import scbdo
+import shelve
+from scbdo import strops
+from contextlib import nested, closing
+
+if len(sys.argv) < 2:
+    print ('Usage: ' + sys.argv[0] + ' namebank_file.csv [-r]')
+    sys.exit(1)
+
+if not os.path.isfile(sys.argv[1]):
+    print ('Error: ' + sys.argv[1] + ' not a file.')
+    sys.exit(1)
+dbflag = 'c'
+if len(sys.argv) > 2 and sys.argv[2] == '-r':
+    dbflag = 'n'
+
+scbdo.mk_data_path()
+abbrs = {}
+try:
+    with open(os.path.join(scbdo.DATA_PATH, 'clubs.csv')) as cn:
+        print('Loading club name abbreviations...')
+        cr = csv.reader(cn)
+        count = 0
+        for c in cr:
+            if len(c) == 2:
+                cname = c[0].translate(strops.PRINT_TRANS).strip().lower()
+                cabbr = c[1].translate(strops.PRINT_TRANS).strip().upper()
+                if cabbr != '':
+                    # assign club abbreviation
+                    abbrs[cname] = cabbr
+                    count += 1
+        print('Added {0} club name abbreviations.'.format(count))
+except IOError:
+    pass
+
+with nested(closing(shelve.open(os.path.join(scbdo.DATA_PATH, 'namebank'),
+                                flag=dbflag)),
+            closing(shelve.open(os.path.join(scbdo.DATA_PATH, 'nameindx'),
+                                flag='n'))
+           ) as (nb, id):
+    print('Opened namebank: ' + str(len(nb)) + ' entries.')
+    with open(sys.argv[1]) as f:
+        print('Reading names from ' + sys.argv[1] + '...')
+        cr = csv.reader(f)
+        rcount = 0
+        for row in cr:
+            ir = [cell.translate(strops.PRINT_TRANS).strip() for cell in row]
+            if len(ir) > 0 and ir[0].isdigit():
+                rcount += 1
+                if nb.has_key(ir[0]):
+                    nr = nb[ir[0]]
+                else:
+                    nr = [ir[0], '', '', '', '', '', '', '']
+                for i in range(1,8):
+                    if len(ir) >= i+1:
+                        # Clean up input fields
+                        if i in [2, 4, 7]:
+                            ir[i] = ir[i].upper()
+                        elif i == 5:
+                            ir[i] = ir[i].lower() # lowercase RFIDs
+                        elif i == 6 and ir[i] == '':
+                            if ir[3].lower() in abbrs:
+                                ir[6] = abbrs[ir[3].lower()]
+
+                        # Copy to dest row
+                        if ir[i] != '':		# don't overwrite
+                            nr[i] = ir[i]
+                nb[ir[0]] = nr
+    nb.sync()
+    print('Closing namebank: ' + str(len(nb)) + ' entries.')
+    print('Re-creating index...')
+    tid = {}
+    nblen = len(nb)
+    cnt = 0
+    for r in nb:
+        for llen in [3, 4]:
+            for nm in [nb[r][1], nb[r][2]]:
+                bucket = strops.search_name(nm)[0:llen]
+                if bucket not in tid:
+                    t = []
+                else:
+                    t = tid[bucket]
+                if r not in t:
+                    t.append(r)
+                tid[bucket] = t	# write back
+        cnt += 1
+        if cnt % 100 == 0:
+            print('Scanning {0}/{1}            '.format(cnt,nblen),
+                    end='\r',file=sys.stderr)
+    max = 0
+    sum = 0
+    cnt = 0
+    maxb = ''
+    for i in tid:
+        blen = len(tid[i])
+        id[i] = tid[i]
+        if blen > 0:
+            if blen > max:
+                max = blen
+                maxb = i
+            sum += blen
+            cnt += 1
+    avg = sum / cnt
+    print('Wrote {0} buckets, Max: {1} ({2} ids), Avg: {3} ids.'.format(
+               cnt, repr(maxb), max, avg))
+
+print('Done.')

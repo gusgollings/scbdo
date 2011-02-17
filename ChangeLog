@@ -1,0 +1,96 @@
+2010-06-11	1.2.0
+	Converted old scbdo to python project.
+	Added a new sourceforge entry: scbdo.sourceforge.net.
+	Setup bazaar source control for project.
+
+2010-06-14	1.2.1
+	* bin/update_namebank: New file.
+	* scbdo/__init__.py (open_namebank): Added function
+	Imported old scbdo event and rider databases.
+	* scbdo/riderdb.py: Convert all methods to use TreeRowRef
+		instead of leaky iterators.
+	* scbdo/wheeltime.py: Clean up thread logic to better handle
+		I/O errors as well as abnormal but not erroneous
+		termination.
+	* scbdo/timy.py: New file.
+
+2010-06-17	1.2.2
+	* scbdo/unt4.py: New file.
+	* scbdo/sender.py: New file.
+	* test/scbpong.py: New file.
+	* scbdo/scbwin.py: New file.
+	* scbdo/trackmeet.py: New file.
+	* scbdo/ui/trackmeet.ui: New file.
+        * scbdo/ui/trackmeet_props.ui: New file.
+        * bin/trackmeet: New file.
+	* scbdo/uiutil.py (questiondlg): Added function.
+	* scbdo/race.py: New file.
+	* scbdo/ui/trackmeet_props.ui: New file.
+	* scbdo/strops.py(truncpad): Add center option and replace manual
+		padding with python string methods.
+	* scbdo/__init__.py: Include global scb width option.
+	* scbdo/data/gnome/help/SCBdo/C/SCBdo.xml: New file.
+	* scbdo/ui/tod_subtract.ui: New file.
+	* scbdo/__init__.py(help_docs): Added function.
+	* scbdo/ui/ps_properties.ui: New file.
+	* scbdo/ps.py: New file.
+	* scbdo/ui/edit_times.ui: New file.
+	* scbdo/ui/ps.ui: New file.
+	* extras/: New collection of configs and support files.
+	* scbdo/scbwin.py(logoanim): Added class.
+	* scbdo/ui/race.ui: New file.
+	* scbdo/ps.py, scbdo/race.py: Finalise 'race' interface and update
+          user interfaces to consistent style. 
+	* scbdo/trackmeet.py: Move bib and event no options to meet config
+	  and provide meet standard string output methods. Add new logo
+	  option for animated logo images on scb
+	* release.
+
+2010-06-25	1.2.3
+	* scbdo/ittt.py: New file.
+	* scbdo/timerpane.py: New file.
+	* scbdo/ui/ittt.ui: New file.
+	* scbdo/ui/tod_context.ui: New file.
+	* scbdo/riderdb.py: Alter mkview to allow show/hide columns.
+	* scbdo/ui/ittt_properties.ui: New file.
+	* scbdo/ui/race_properties.ui: New file.
+	* scbdo/namebank.py: New file.
+	* re-arrange extras directory
+	* add in PDF keyboard overlay and flowcharts
+	* remove 'test' directory
+	* include DISC DHI files
+	* Alter races to use F6 for timer window instead of F8
+	* Include catch/caught in pursuit/ITT
+	* Include diff time for pursuit race
+
+2010-07-15	1.2.4
+	* trackmeet: On new race add, focus input on an empty prefix
+	* race properties dlg: Set initial focus on an entry for all types
+	* scbwin: Repair broken log animation and test at DISC	
+	* trackmeet: Force single window of results for place listing on SCB
+	* race: Config and implement top n place transfer (keirin, hcap etc)
+	* all races: on load, do a lookup of rider names if first/last/club ''
+	* ittt: Include load/save of lane id for startlists
+	* added road time trial
+	* tod.py: change time format to: HHhMM:SS.DCMZ, uses colon for hour
+	  if zeros flag set (Matt's export mode)
+
+2010-08-20	1.2.5
+	* roadmeet: new road meet toplevel with specifics for irtt, handicap
+	  criterium and mass start.
+	* start of print handling
+	* re-design road race user interface with TOBU in mind
+	* alter signal handling to only wake once per second to improve
+	  battery life - works well in the field
+	* add sender for emission of scratchpad to uSCB terminal
+	* add save scratchpad for recall
+	* add print of scratchpad to reports
+
+2010-09-24	1.2.6
+	* massride: new mass pariticipation app, uses roadmeet container
+	* bring old ms.py across to main source tree (rms.py) and begin
+	  integration to roadrace handler for crit and road races
+
+2010-11-06	1.2.8
+	* Roadmeet goes to Beta -> missing some features, but functional
+	* Update docs and push new version to sf

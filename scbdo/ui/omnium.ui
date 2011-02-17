@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkVBox" id="omnium_vbox">
+    <property name="visible">True</property>
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkExpander" id="info_expand">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="border_width">5</property>
+        <property name="expanded">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkTable" id="omnium_info_table">
+            <property name="visible">True</property>
+            <property name="border_width">5</property>
+            <property name="n_rows">3</property>
+            <property name="n_columns">3</property>
+            <child>
+              <object class="GtkLabel" id="omnium_info_evno_pfx">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Event:</property>
+                <property name="width_chars">10</property>
+                <property name="track_visited_links">False</property>
+              </object>
+              <packing>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="omnium_info_prefix_pfx">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Prefix:</property>
+                <property name="track_visited_links">False</property>
+              </object>
+              <packing>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="omnium_info_title_pfx">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Title:</property>
+                <property name="track_visited_links">False</property>
+              </object>
+              <packing>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="omnium_info_prefix">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
+                <property name="max_length">32</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="width_chars">24</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="omnium_info_evno">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="xpad">4</property>
+                <property name="ypad">2</property>
+                <property name="single_line_mode">True</property>
+                <property name="track_visited_links">False</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="omnium_info_title">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">32</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="width_chars">24</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="omnium_type">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="xalign">1</property>
+                <property name="xpad">2</property>
+                <property name="ypad">2</property>
+                <property name="label" translatable="yes">[omnium]</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="y_options">GTK_FILL</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+        </child>
+        <child type="label_item">
+          <placeholder/>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="position">0</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkScrolledWindow" id="omnium_result_win">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="border_width">5</property>
+        <property name="hscrollbar_policy">automatic</property>
+        <property name="vscrollbar_policy">automatic</property>
+        <property name="shadow_type">in</property>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+      <packing>
+        <property name="position">1</property>
+      </packing>
+    </child>
+  </object>
+</interface>

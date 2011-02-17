@@ -1,0 +1,119 @@
+[HEADER]
+name=RES 2+4
+version=0
+dim=144 72
+converttooem=1
+effect= 6 0 9 0 10 0 97 114 4 0 1 0 0 0 0 0 255 255 255 0 0 0 49 10 0 0 0 0 0 0 0 0
+
+[FIELD]
+name=Header 1
+type=Text
+attributs=0x14
+font=MS Reference Sans Serif, 8pts, (charset = 0)
+trim=1
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 0 144 11
+info=SCBDO.DBE:IGSCBDO[4]
+infotype=DB
+
+[FIELD]
+name=Header 2
+type=Text
+attributs=0x14
+font=MS Reference Sans Serif, 8pts, (charset = 0)
+trim=1
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 11 144 11
+info=SCBDO.DBE:IGSCBDO[5]
+infotype=DB
+
+[FIELD]
+name=Divider
+type=Bitmap
+attributs=0x00
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 23 144 1
+info=C:\DISC\SCBDO\scb_dotline.bmp
+infotype=IMG
+
+[FIELD]
+name=Res Line 1
+type=Text
+attributs=0x21
+font=OE-Small 8, 8pts, (charset = 255)
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 24 144 12
+info=SCBDO.DBE:IGSCBDO[6]
+infotype=DB
+
+[FIELD]
+name=Res Line 2
+type=Text
+attributs=0x21
+font=OE-Small 8, 8pts, (charset = 255)
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 36 144 12
+info=SCBDO.DBE:IGSCBDO[7]
+infotype=DB
+
+[FIELD]
+name=Res Line 3
+type=Text
+attributs=0x21
+font=OE-Small 8, 8pts, (charset = 255)
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 48 144 12
+info=SCBDO.DBE:IGSCBDO[8]
+infotype=DB
+
+[FIELD]
+name=Res Line 4
+type=Text
+attributs=0x21
+font=OE-Small 8, 8pts, (charset = 255)
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 60 144 12
+info=SCBDO.DBE:IGSCBDO[9]
+infotype=DB

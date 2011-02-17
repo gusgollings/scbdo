@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkListStore" id="race_action_model">
+    <columns>
+      <!-- column-name action -->
+      <column type="gchararray"/>
+      <!-- column-name code -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Withdraw</col>
+        <col id="1" translatable="yes">dnf</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Add Starters</col>
+        <col id="1" translatable="yes">add</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Del Starters</col>
+        <col id="1" translatable="yes">del</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkVBox" id="race_vbox">
+    <property name="visible">True</property>
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkHBox" id="race_title_box">
+        <property name="visible">True</property>
+        <property name="border_width">5</property>
+        <child>
+          <object class="GtkLabel" id="title_namestr">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Lines</property>
+          </object>
+          <packing>
+            <property name="padding">2</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="time_lbl">
+            <property name="visible">True</property>
+            <property name="width_chars">10</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="padding">2</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="info_time_edit">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="info_time_edit_clicked_cb"/>
+            <child>
+              <object class="GtkImage" id="race_time_edit_icon">
+                <property name="visible">True</property>
+                <property name="tooltip_text" translatable="yes">Manually adjust race times.</property>
+                <property name="stock">gtk-edit</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="padding">2</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="title_place_xfer">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text" translatable="yes">Recalculate result based on current data.</property>
+            <signal name="clicked" handler="title_place_xfer_clicked_cb"/>
+            <child>
+              <object class="GtkImage" id="race_place_icon">
+                <property name="visible">True</property>
+                <property name="stock">gtk-refresh</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="title_close">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text" translatable="yes">Close and save race.</property>
+            <property name="relief">half</property>
+            <property name="focus_on_click">False</property>
+            <signal name="clicked" handler="title_close_clicked_cb"/>
+            <child>
+              <object class="GtkImage" id="race_close_icon">
+                <property name="visible">True</property>
+                <property name="stock">gtk-close</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="padding">2</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="position">0</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkScrolledWindow" id="race_result_win">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="border_width">5</property>
+        <property name="hscrollbar_policy">automatic</property>
+        <property name="vscrollbar_policy">automatic</property>
+        <property name="shadow_type">in</property>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+      <packing>
+        <property name="position">1</property>
+      </packing>
+    </child>
+  </object>
+  <object class="GtkListStore" id="race_timetype_model">
+    <columns>
+      <!-- column-name label -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">ITT/Pursuit</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Flying Start</col>
+      </row>
+    </data>
+  </object>
+</interface>

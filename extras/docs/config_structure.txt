@@ -1,0 +1,11 @@
+SCBdo Meet File Structure:
+
+site-config		Site specific configs
+meetdir/
+	config		Meet configuration
+	riders.csv	List of riders and their numbers
+	events.csv	List of event numbers, names and types
+	results.csv	Meet results in comma sep spreadsheet
+	log		Log of all program and timing events
+	event_X		Config, starters and results for event XX
+	event_X_heat_Y	Config, starters and results for heat YY of event XX

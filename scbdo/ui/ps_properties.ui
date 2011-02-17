@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkDialog" id="properties">
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">SCBdo :: Event Properties</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="type_hint">dialog</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox1">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkTable" id="race_table">
+            <property name="visible">True</property>
+            <property name="n_rows">8</property>
+            <property name="n_columns">3</property>
+            <property name="column_spacing">2</property>
+            <property name="row_spacing">2</property>
+            <child>
+              <object class="GtkLabel" id="race_laps_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Sprint Laps:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="race_laps_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
+                <property name="tooltip_text" translatable="yes">List of sprint laps in race</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">2</property>
+                <property name="bottom_attach">3</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHSeparator" id="hseparator1">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="right_attach">3</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+                <property name="y_options"></property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="properties_title">
+                <property name="visible">True</property>
+                <property name="yalign">1</property>
+                <property name="label" translatable="yes">Edit Race Properties</property>
+              </object>
+              <packing>
+                <property name="right_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="race_score_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Scoring:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBox" id="race_score_type">
+                <property name="visible">True</property>
+                <property name="tooltip_text" translatable="yes">Scoring type, laps (Madison) or points</property>
+                <property name="model">scoring_model</property>
+                <property name="active">0</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                  <attributes>
+                    <attribute name="text">0</attribute>
+                  </attributes>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">3</property>
+                <property name="bottom_attach">4</property>
+                <property name="y_options"></property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="race_dist_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Distance:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">4</property>
+                <property name="bottom_attach">5</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="race_dist_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Race distance</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">4</property>
+                <property name="bottom_attach">5</property>
+                <property name="y_options"></property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBox" id="race_dist_type">
+                <property name="visible">True</property>
+                <property name="tooltip_text" translatable="yes">Units for race distance</property>
+                <property name="model">dist_type_model</property>
+                <property name="active">1</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext2"/>
+                  <attributes>
+                    <attribute name="text">0</attribute>
+                  </attributes>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">4</property>
+                <property name="bottom_attach">5</property>
+                <property name="y_options"></property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="race_showbib_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Masters Rule 3.65.10.4:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">5</property>
+                <property name="bottom_attach">6</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="race_showbib_toggle">
+                <property name="label" translatable="yes">Yes?</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">For races of less than 20km, ten points for a lap gained.</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">5</property>
+                <property name="bottom_attach">6</property>
+                <property name="y_options"></property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="race_series_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Series:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">6</property>
+                <property name="bottom_attach">7</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="race_starters_label">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Add Starters:</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">7</property>
+                <property name="bottom_attach">8</property>
+                <property name="x_options">GTK_FILL</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="race_starters_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Add listed bibs to race.</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">7</property>
+                <property name="bottom_attach">8</property>
+                <property name="y_options"></property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkAlignment" id="alignment1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="xscale">0</property>
+                <child>
+                  <object class="GtkEntry" id="race_series_entry">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Optional bib series id.</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="activates_default">True</property>
+                    <property name="width_chars">4</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">3</property>
+                <property name="top_attach">6</property>
+                <property name="bottom_attach">7</property>
+                <property name="y_options">GTK_FILL</property>
+                <property name="x_padding">2</property>
+                <property name="y_padding">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="layout_style">edge</property>
+            <child>
+              <object class="GtkButton" id="properties_cancel">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Abandon all changes</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="properties_apply">
+                <property name="label">gtk-apply</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="can_default">True</property>
+                <property name="has_default">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Apply changes to the current meet</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">properties_cancel</action-widget>
+      <action-widget response="1">properties_apply</action-widget>
+    </action-widgets>
+  </object>
+  <object class="GtkListStore" id="scoring_model">
+    <columns>
+      <!-- column-name scoring -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Madison</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Points</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="dist_type_model">
+    <columns>
+      <!-- column-name type -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">metres</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">laps</col>
+      </row>
+    </data>
+  </object>
+</interface>

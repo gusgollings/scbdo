@@ -1,0 +1,882 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="meet">
+    <property name="title" translatable="yes">SCBdo :: Road Meet</property>
+    <property name="default_width">800</property>
+    <property name="default_height">600</property>
+    <signal name="destroy" handler="meet_destroy_cb"/>
+    <child>
+      <object class="GtkVBox" id="meet_vbox">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkHBox" id="top_box">
+            <property name="visible">True</property>
+            <property name="spacing">1</property>
+            <child>
+              <object class="GtkMenuBar" id="menu_bar">
+                <property name="visible">True</property>
+                <child>
+                  <object class="GtkMenuItem" id="menu_meet">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">_Meet</property>
+                    <property name="use_underline">True</property>
+                    <child type="submenu">
+                      <object class="GtkMenu" id="menu1">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_meet_open">
+                            <property name="label">_Open...</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Open or create a meet</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image7</property>
+                            <property name="use_stock">False</property>
+                            <accelerator key="o" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                            <signal name="activate" handler="menu_meet_open_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_meet_save">
+                            <property name="label">gtk-save</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Save the current meet</property>
+                            <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
+                            <accelerator key="s" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                            <signal name="activate" handler="menu_meet_save_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparatorMenuItem" id="menu_meet_sep1">
+                            <property name="visible">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_meet_properties">
+                            <property name="label" translatable="yes">_Properties...</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Edit meet properties</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image8</property>
+                            <property name="use_stock">False</property>
+                            <accelerator key="p" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                            <signal name="activate" handler="menu_meet_properties_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkCheckMenuItem" id="menu_meet_fullscreen">
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Toggle fullscreen view of application.</property>
+                            <property name="label" translatable="yes">_Fullscreen</property>
+                            <property name="use_underline">True</property>
+                            <signal name="toggled" handler="menu_meet_fullscreen_toggled_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparatorMenuItem" id="menu_meet_sepr">
+                            <property name="visible">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_meet_printprefs">
+                            <property name="label" translatable="yes">Pri_nt Properties...</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Printer preferences.</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image21</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="menu_meet_printprefs_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparatorMenuItem" id="menu_meet_sep2">
+                            <property name="visible">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_meet_quit">
+                            <property name="label">gtk-quit</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Quit SCBdo</property>
+                            <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
+                            <accelerator key="q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                            <signal name="activate" handler="menu_meet_quit_cb"/>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkMenuItem" id="menu_race">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">_Race</property>
+                    <property name="use_underline">True</property>
+                    <child type="submenu">
+                      <object class="GtkMenu" id="menu6">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_race_run">
+                            <property name="label" translatable="yes">_Run</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Run the selected event</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image5</property>
+                            <property name="use_stock">False</property>
+                            <accelerator key="Return" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                            <signal name="activate" handler="menu_race_run_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_race_close">
+                            <property name="label">C_lose</property>
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="tooltip_text" translatable="yes">Save and close the current event</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image6</property>
+                            <property name="use_stock">False</property>
+                            <accelerator key="w" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                            <signal name="activate" handler="menu_race_close_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparatorMenuItem" id="menu_race_sep2">
+                            <property name="visible">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_race_abort">
+                            <property name="label">gtk-cancel</property>
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="tooltip_text" translatable="yes">Abort the current race without saving.</property>
+                            <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
+                            <signal name="activate" handler="menu_race_abort_activate_cb"/>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkMenuItem" id="menu_reports">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">R_eports</property>
+                    <property name="use_underline">True</property>
+                    <child type="submenu">
+                      <object class="GtkMenu" id="menu5">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_reports_startlist">
+                            <property name="label" translatable="yes">_Startlist</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Generate a race startlist.</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image10</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="menu_reports_startlist_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_reports_camera">
+                            <property name="label" translatable="yes">_Judges Form</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Race places report for camera operator or judge.</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image13</property>
+                            <property name="use_stock">False</property>
+                            <accelerator key="F12" signal="activate"/>
+                            <signal name="activate" handler="menu_reports_camera_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_reports_result">
+                            <property name="label" translatable="yes">_Race Result</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Race result report.</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image14</property>
+                            <property name="use_stock">False</property>
+                            <accelerator key="F11" signal="activate"/>
+                            <signal name="activate" handler="menu_reports_result_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="race_results_points">
+                            <property name="label" translatable="yes">Points _Classification</property>
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="tooltip_text" translatable="yes">Points classifications for event.</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image17</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="race_results_points_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparatorMenuItem" id="menu_reports_sep">
+                            <property name="visible">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_reports_scratch_new">
+                            <property name="label" translatable="yes">New notepad</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Start a new notepad, and reset lap time.</property>
+                            <property name="image">image22</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="menu_reports_scratch_new_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_reports_scratch_print">
+                            <property name="label" translatable="yes">Print notepad</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Print current notepad contents</property>
+                            <property name="image">image23</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="menu_reports_scratch_print_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparatorMenuItem" id="report_septo">
+                            <property name="visible">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_reports_prefs">
+                            <property name="label">_Preferences...</property>
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="tooltip_text" translatable="yes">Edit report preferences.</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image19</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="menu_reports_prefs_activate_cb"/>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkMenuItem" id="menu_data">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">_Data</property>
+                    <property name="use_underline">True</property>
+                    <child type="submenu">
+                      <object class="GtkMenu" id="menu2">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_data_rego">
+                            <property name="label" translatable="yes">_Rider Registration...</property>
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="tooltip_text" translatable="yes">Register rider names and numbers to the meet.</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image18</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="menu_data_rego_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparatorMenuItem" id="menu_data_sepa">
+                            <property name="visible">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkMenuItem" id="menu_data_import">
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="tooltip_text" translatable="yes">Import rider or event data</property>
+                            <property name="label" translatable="yes">_Import...</property>
+                            <property name="use_underline">True</property>
+                            <signal name="activate" handler="menu_data_import_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkMenuItem" id="menu_data_export">
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="tooltip_text" translatable="yes">Export riders, results or event data</property>
+                            <property name="label" translatable="yes">_Export...</property>
+                            <property name="use_underline">True</property>
+                            <signal name="activate" handler="menu_data_export_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparatorMenuItem" id="menu_data_sep">
+                            <property name="visible">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_data_results">
+                            <property name="label" translatable="yes">Live _Results</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Update live results</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image15</property>
+                            <property name="use_stock">False</property>
+                            <accelerator key="e" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                            <signal name="activate" handler="menu_data_results_cb"/>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkMenuItem" id="menu_timy">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">_Timing</property>
+                    <property name="use_underline">True</property>
+                    <child type="submenu">
+                      <object class="GtkMenu" id="menu4">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_timing_subtract">
+                            <property name="label" translatable="yes">_Subtract</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Compute a net time from start and finish ToD</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image16</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="menu_timing_subtract_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSeparatorMenuItem" id="menu_timing_sep1">
+                            <property name="visible">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_timing_clear">
+                            <property name="label" translatable="yes">_Clear Memory</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Clear memory in attached timing devices.</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image11</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="menu_timing_clear_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_timing_sync">
+                            <property name="label" translatable="yes">S_ynchronise</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Roughly sync the Wheeltime clock.</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image20</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="menu_timing_sync_activate_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_timing_reconnect">
+                            <property name="label" translatable="yes">_Reconnect</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">Reconnect and initialise timing devices.</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image12</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="menu_timing_reconnect_activate_cb"/>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkMenuItem" id="menu_help">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">_Help</property>
+                    <property name="use_underline">True</property>
+                    <child type="submenu">
+                      <object class="GtkMenu" id="menu3">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_help_docs">
+                            <property name="label">_Contents</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">SCBdo Documentation and info</property>
+                            <property name="use_underline">True</property>
+                            <property name="image">image9</property>
+                            <property name="use_stock">False</property>
+                            <signal name="activate" handler="menu_help_docs_cb"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImageMenuItem" id="menu_help_about">
+                            <property name="label">gtk-about</property>
+                            <property name="visible">True</property>
+                            <property name="tooltip_text" translatable="yes">About SCBdo</property>
+                            <property name="use_underline">True</property>
+                            <property name="use_stock">True</property>
+                            <signal name="activate" handler="menu_help_about_cb"/>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="menu_rfustat">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">RF Unit connection status. Select to re-connect.</property>
+                <property name="focus_on_click">False</property>
+                <signal name="clicked" handler="menu_rfustat_clicked_cb"/>
+                <child>
+                  <object class="GtkImage" id="menu_rfustat_img">
+                    <property name="visible">True</property>
+                    <property name="stock">gtk-disconnect</property>
+                    <property name="icon-size">3</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="menu_clock">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Current computer time of day.</property>
+                <property name="focus_on_click">False</property>
+                <signal name="clicked" handler="menu_clock_clicked_cb"/>
+                <child>
+                  <object class="GtkLabel" id="menu_clock_label">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">hh:mm:ss</property>
+                    <property name="width_chars">10</property>
+                    <property name="single_line_mode">True</property>
+                    <property name="track_visited_links">False</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="race_stat_hbox">
+            <property name="visible">True</property>
+            <property name="border_width">5</property>
+            <property name="spacing">4</property>
+            <child>
+              <object class="GtkButton" id="race_stat_but">
+                <property name="label" translatable="yes">Closed</property>
+                <property name="width_request">160</property>
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Race status button.</property>
+                <signal name="clicked" handler="race_stat_but_clicked_cb"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBox" id="race_action_combo">
+                <property name="visible">True</property>
+                <property name="tooltip_text" translatable="yes">Select an action to perform.</property>
+                <property name="model">race_action_model</property>
+                <property name="active">0</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                  <attributes>
+                    <attribute name="text">1</attribute>
+                  </attributes>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="race_action_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Apply the selected action to the rider numbers entered.</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <property name="caps_lock_warning">False</property>
+                <signal name="activate" handler="race_stat_entry_activate_cb"/>
+              </object>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkNotebook" id="meet_nb">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="border_width">2</property>
+            <property name="tab_pos">right</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkScrolledWindow" id="scratch_box">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="border_width">5</property>
+                <property name="hscrollbar_policy">automatic</property>
+                <property name="vscrollbar_policy">automatic</property>
+                <property name="shadow_type">in</property>
+                <child>
+                  <object class="GtkTextView" id="scratch_view">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="left_margin">2</property>
+                    <property name="right_margin">2</property>
+                    <property name="buffer">scratch_buffer</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="tab">
+              <object class="GtkVBox" id="scratch_tab_box">
+                <property name="visible">True</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">2</property>
+                <child>
+                  <object class="GtkImage" id="scratch_tab_img">
+                    <property name="visible">True</property>
+                    <property name="yalign">1</property>
+                    <property name="stock">gtk-copy</property>
+                    <property name="icon-size">6</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="scratch_tab_lbl">
+                    <property name="visible">True</property>
+                    <property name="yalign">0</property>
+                    <property name="label" translatable="yes">notepad</property>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFrame" id="race_box">
+                <property name="visible">True</property>
+                <property name="border_width">5</property>
+                <property name="label_xalign">0</property>
+                <property name="shadow_type">none</property>
+                <child>
+                  <placeholder/>
+                </child>
+                <child type="label_item">
+                  <placeholder/>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkVBox" id="race_tab_box">
+                <property name="visible">True</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">2</property>
+                <child>
+                  <object class="GtkImage" id="race_tab_img">
+                    <property name="visible">True</property>
+                    <property name="yalign">1</property>
+                    <property name="stock">gtk-missing-image</property>
+                    <property name="icon-size">3</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="race_tab_lbl">
+                    <property name="visible">True</property>
+                    <property name="yalign">0</property>
+                    <property name="label" translatable="yes">result</property>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow" id="log_box">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="border_width">5</property>
+                <property name="hscrollbar_policy">automatic</property>
+                <property name="vscrollbar_policy">automatic</property>
+                <property name="shadow_type">in</property>
+                <child>
+                  <object class="GtkTextView" id="log_view">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="editable">False</property>
+                    <property name="left_margin">2</property>
+                    <property name="right_margin">2</property>
+                    <property name="cursor_visible">False</property>
+                    <property name="buffer">log_buffer</property>
+                    <property name="accepts_tab">False</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkVBox" id="log_tab_box">
+                <property name="visible">True</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">2</property>
+                <child>
+                  <object class="GtkImage" id="log_tab_img">
+                    <property name="visible">True</property>
+                    <property name="yalign">1</property>
+                    <property name="stock">gtk-dialog-warning</property>
+                    <property name="icon-size">6</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="log_tab_lbl">
+                    <property name="visible">True</property>
+                    <property name="yalign">0</property>
+                    <property name="label" translatable="yes">event log</property>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">2</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow" id="riders_box">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="border_width">5</property>
+                <property name="hscrollbar_policy">automatic</property>
+                <property name="vscrollbar_policy">automatic</property>
+                <property name="shadow_type">in</property>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+              <packing>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkVBox" id="rdb_tab_box">
+                <property name="visible">True</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">2</property>
+                <child>
+                  <object class="GtkImage" id="rdb_tab_img">
+                    <property name="visible">True</property>
+                    <property name="yalign">1</property>
+                    <property name="stock">gtk-find</property>
+                    <property name="icon-size">6</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="rdb_tab_lbl">
+                    <property name="visible">True</property>
+                    <property name="yalign">0</property>
+                    <property name="label" translatable="yes">riders</property>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">3</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkStatusbar" id="status">
+            <property name="visible">True</property>
+            <property name="spacing">2</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkImage" id="image1">
+    <property name="visible">True</property>
+    <property name="stock">gtk-revert-to-saved</property>
+  </object>
+  <object class="GtkImage" id="image2">
+    <property name="visible">True</property>
+    <property name="stock">gtk-go-forward</property>
+  </object>
+  <object class="GtkImage" id="image3">
+    <property name="visible">True</property>
+    <property name="stock">gtk-go-back</property>
+  </object>
+  <object class="GtkImage" id="image4">
+    <property name="visible">True</property>
+    <property name="stock">gtk-network</property>
+  </object>
+  <object class="GtkImage" id="image7">
+    <property name="visible">True</property>
+    <property name="stock">gtk-open</property>
+  </object>
+  <object class="GtkImage" id="image8">
+    <property name="visible">True</property>
+    <property name="stock">gtk-properties</property>
+  </object>
+  <object class="GtkTextBuffer" id="log_buffer"/>
+  <object class="GtkImage" id="image5">
+    <property name="visible">True</property>
+    <property name="stock">gtk-media-play</property>
+  </object>
+  <object class="GtkImage" id="image11">
+    <property name="visible">True</property>
+    <property name="stock">gtk-clear</property>
+  </object>
+  <object class="GtkImage" id="image12">
+    <property name="visible">True</property>
+    <property name="stock">gtk-refresh</property>
+  </object>
+  <object class="GtkImage" id="image15">
+    <property name="visible">True</property>
+    <property name="stock">gtk-go-back</property>
+  </object>
+  <object class="GtkImage" id="image6">
+    <property name="visible">True</property>
+    <property name="stock">gtk-close</property>
+  </object>
+  <object class="GtkImage" id="image16">
+    <property name="visible">True</property>
+    <property name="stock">gtk-remove</property>
+  </object>
+  <object class="GtkImage" id="image18">
+    <property name="visible">True</property>
+    <property name="stock">gtk-edit</property>
+  </object>
+  <object class="GtkImage" id="image9">
+    <property name="visible">True</property>
+    <property name="stock">gtk-help</property>
+  </object>
+  <object class="GtkTextBuffer" id="scratch_buffer"/>
+  <object class="GtkImage" id="image10">
+    <property name="visible">True</property>
+    <property name="stock">gtk-orientation-portrait</property>
+  </object>
+  <object class="GtkImage" id="image13">
+    <property name="visible">True</property>
+    <property name="stock">gtk-edit</property>
+  </object>
+  <object class="GtkImage" id="image14">
+    <property name="visible">True</property>
+    <property name="stock">gtk-new</property>
+  </object>
+  <object class="GtkImage" id="image17">
+    <property name="visible">True</property>
+    <property name="stock">gtk-copy</property>
+  </object>
+  <object class="GtkImage" id="image19">
+    <property name="visible">True</property>
+    <property name="stock">gtk-preferences</property>
+  </object>
+  <object class="GtkImage" id="image20">
+    <property name="visible">True</property>
+    <property name="stock">gtk-properties</property>
+  </object>
+  <object class="GtkImage" id="image21">
+    <property name="visible">True</property>
+    <property name="stock">gtk-print</property>
+  </object>
+  <object class="GtkListStore" id="race_action_model">
+    <columns>
+      <!-- column-name code -->
+      <column type="gchararray"/>
+      <!-- column-name str -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">com</col>
+        <col id="1" translatable="yes">Add comment</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkImage" id="image22">
+    <property name="visible">True</property>
+    <property name="stock">gtk-new</property>
+  </object>
+  <object class="GtkImage" id="image23">
+    <property name="visible">True</property>
+    <property name="stock">gtk-print</property>
+  </object>
+</interface>

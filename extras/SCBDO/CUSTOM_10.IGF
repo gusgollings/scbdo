@@ -1,0 +1,86 @@
+[HEADER]
+name=Array 24x5
+version=0
+dim=144 72
+converttooem=1
+effect= 6 0 9 0 10 0 48 70 8 0 1 0 0 0 0 0 255 255 255 0 0 0 48 48 0 0 0 0 0 0 0 0
+
+[FIELD]
+name=Line 0
+type=Text
+attributs=0x11
+font=OE-Small 8, 6pts, (charset = 255)
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 0 144 12
+info=SCBDO.DBE:IGSCBDO[10]
+infotype=DB
+
+[FIELD]
+name=Line 1
+type=Text
+attributs=0x11
+font=OE-Small 8, 6pts, (charset = 255)
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 15 144 12
+info=SCBDO.DBE:IGSCBDO[11]
+infotype=DB
+
+[FIELD]
+name=Line 2
+type=Text
+attributs=0x11
+font=OE-Small 8, 6pts, (charset = 255)
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 30 144 12
+info=SCBDO.DBE:IGSCBDO[12]
+infotype=DB
+
+[FIELD]
+name=Line 3
+type=Text
+attributs=0x11
+font=OE-Small 8, 6pts, (charset = 255)
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 45 144 12
+info=SCBDO.DBE:IGSCBDO[13]
+infotype=DB
+
+[FIELD]
+name=Line 4
+type=Text
+attributs=0x11
+font=OE-Small 8, 6pts, (charset = 255)
+xspaces=0
+fcol=0x00FFFFFF
+bcol=0x00000000
+scol=0x00FFFFFF
+ccol=0x00FFFFFF
+framewidth=0
+shadow=0 0
+rect=0 60 144 12
+info=SCBDO.DBE:IGSCBDO[14]
+infotype=DB
